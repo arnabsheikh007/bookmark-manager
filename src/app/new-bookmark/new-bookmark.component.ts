@@ -22,6 +22,7 @@ export class NewBookmarkComponent {
   }
 
   validateUrl(){
+    if(this.url.length === 0) return false;
     const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
@@ -42,6 +43,10 @@ export class NewBookmarkComponent {
     }
     else if( this.validateUrl() === false ){
       this.msg = "Invalid URL";
+    }
+    else if(this.category.length === 0){
+      this.msg = "Please Select or create a category";
+      return;
     }
     this.bookmarkCreated.emit({
       title : this.title,
