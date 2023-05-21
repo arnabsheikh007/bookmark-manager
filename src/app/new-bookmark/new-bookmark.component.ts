@@ -43,6 +43,7 @@ export class NewBookmarkComponent {
     }
     else if( this.validateUrl() === false ){
       this.msg = "Invalid URL";
+      return;
     }
     else if(this.category.length === 0){
       this.msg = "Please Select or create a category";
@@ -54,6 +55,14 @@ export class NewBookmarkComponent {
       category : this.category
     });
     this.msg = "Bookmark added successfully";
+    this.clearForm();
+  }
+
+  clearForm(){
+    this.title = '';
+    this.url = '';
+    this.category = '';
+    this.newcategory = '';
   }
 
   onCreateCategory(){
