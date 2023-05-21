@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row box">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    
+                    
+                        <div class="row">
+                            <div class="col-sm-10 form-group">
+                                <label for="name">Title</label>
+                                <input type="text" id="title" class="form-control" [(ngModel)] ="title">
+                            </div>
+                            <div class="col-sm-10 form-group">
+                                <label for="phone">URL</label>
+                                <input type="text"  id="url" class="form-control" [(ngModel)] ="url" >
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="col-sm-5 form-group">
+                                    <label for="address">Category</label>
+                                    <select type="select"  name="category" class="form-control" [(ngModel)] ="category" disabled="{{showNewCategory}}">
+                                        <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2 form-group">
+                                    <button class="btn btn-primary" (click)="onShowNewCategory()">+</button>
+                                </div>
+                                <div class="col-sm-5 form-group" *ngIf="showNewCategory">
+                                    <label for="address">New Category</label>
+                                    <input type="text"  id="category" class="form-control" [(ngModel)] ="newcategory">
+                                    <button class="btn btn-success" type="button" (click)="onCreateCategory()">Add Category</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>{{msg}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button class="btn btn-success" type="button" (click)="onCreateBookmark()">Add</button>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
